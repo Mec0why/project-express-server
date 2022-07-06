@@ -2,3 +2,8 @@ h1 {
     font-weight: lighter;
     font-style: italic;
   }
+
+img {
+  max-width: 325px;
+  max-height: 325px;
+}

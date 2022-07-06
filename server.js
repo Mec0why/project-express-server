@@ -10,6 +10,14 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/style.css', (req, res) => {
+  res.sendFile(path.join(__dirname, '/style.css'));
+});
+
+app.get('/test.png', (req, res) => {
+  res.sendFile(path.join(__dirname, '/test.png'));
+});
+
 app.get('/', (req, res) => {
   res.show('index.html');
 });
@@ -32,14 +40,6 @@ app.get('/history', (req, res) => {
 
 app.use((req, res) => {
   res.status(404).send('404 not found...');
-});
-
-app.get('/style.css', (req, res) => {
-  res.sendFile(path.join(__dirname, '/style.css'));
-});
-
-app.get('/test.png', (req, res) => {
-  res.sendFile(path.join(__dirname, '/test.png'));
 });
 
 app.listen(8000, () => {
