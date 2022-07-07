@@ -11,29 +11,29 @@ app.engine(
 app.set('view engine', '.hbs');
 
 app.use('/user', (req, res) => {
-  res.render('login', { layout: false });
+  res.render('login');
 });
 
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => {
-  res.render('index', { layout: false });
+  res.render('index');
 });
 
 app.get('/home', (req, res) => {
-  res.render('index', { layout: false });
+  res.render('index');
 });
 
 app.get('/about', (req, res) => {
-  res.render('about', { layout: false });
+  res.render('about');
 });
 
 app.get('/user/settings', (req, res) => {
-  res.render('settings', { layout: false });
+  res.render('settings');
 });
 
 app.get('/user/panel', (req, res) => {
-  res.render('panel', { layout: false });
+  res.render('panel');
 });
 
 app.get('/hello/:name', (req, res) => {
