@@ -7,38 +7,30 @@ const app = express();
 app.engine('.hbs', hbs());
 app.set('view engine', '.hbs');
 
-app.use('/user', (req, res, next) => {
-  res.sendFile(path.join(__dirname, `/views/login.html`));
-  next();
-});
-
-app.use((req, res, next) => {
-  res.show = (name) => {
-    res.sendFile(path.join(__dirname, `/views/${name}`));
-  };
-  next();
+app.use('/user', (req, res) => {
+  res.render('login', { layout: false });
 });
 
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => {
-  res.show('index.html');
+  res.render('index', { layout: false });
 });
 
 app.get('/home', (req, res) => {
-  res.show('index.html');
+  res.render('index', { layout: false });
 });
 
 app.get('/about', (req, res) => {
-  res.show('about.html');
+  res.render('about', { layout: false });
 });
 
-app.get('/views/user/settings', (req, res) => {
-  res.show('settings.html');
+app.get('/user/settings', (req, res) => {
+  res.render('settings', { layout: false });
 });
 
-app.get('/views/user/panel', (req, res) => {
-  res.show('panel.html');
+app.get('/user/panel', (req, res) => {
+  res.render('panel', { layout: false });
 });
 
 app.get('/hello/:name', (req, res) => {
