@@ -37,6 +37,10 @@ app.get('/views/user/panel', (req, res) => {
   res.show('panel.html');
 });
 
+app.get('/hello/:name', (req, res) => {
+  res.send(`Hello ${req.params.name}`);
+});
+
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, '/public/404errorwires.jpg'));
 });
