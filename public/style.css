@@ -1,9 +1,21 @@
-h1 {
-    font-weight: lighter;
-    font-style: italic;
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
   }
 
+h1 {
+  align-self: center;
+  font-size: 132px;
+}
+
 img {
-  max-width: 325px;
-  max-height: 325px;
+  width: 100vw;
+  height: 100vh;
+}
+
+form {
+  align-self: center;
 }
