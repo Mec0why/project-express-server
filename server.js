@@ -28,6 +28,18 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+app.get('/contact', (req, res) => {
+  res.render('contact');
+});
+
+app.get('/info', (req, res) => {
+  res.render('info');
+});
+
+app.get('/history', (req, res) => {
+  res.render('history');
+});
+
 app.get('/user/settings', (req, res) => {
   res.render('settings');
 });
