@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
+const hbs = require('express-handlebars');
 
 const app = express();
+
+app.engine('.hbs', hbs());
+app.set('view engine', '.hbs');
 
 app.use('/user', (req, res, next) => {
   res.sendFile(path.join(__dirname, `/views/login.html`));
