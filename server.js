@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
+const multer = require('multer');
+const upload = multer();
 
 const app = express();
 
@@ -56,15 +58,20 @@ app.get('/hello/:name', (req, res) => {
   res.render('hello', { layout: false, name: req.params.name });
 });
 
-app.post('/contact/send-message', (req, res) => {
-  const { author, sender, title, message } = req.body;
+app.post(
+  '/contact/send-message',
+  upload.single('projectdesign'),
+  (req, res) => {
+    const { author, sender, title, message } = req.body;
+    const file = req.file;
 
-  if (author && sender && title && message) {
-    res.render('contact', { isSent: true });
-  } else {
-    res.render('contact', { isError: true });
+    if (author && sender && title && file && message) {
+      res.render('contact', { isSent: true, file: file.originalname });
+    } else {
+      res.render('contact', { isError: true });
+    }
   }
-});
+);
 
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, '/public/404errorwires.jpg'));
